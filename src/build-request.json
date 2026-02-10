@@ -1,0 +1,96 @@
+{
+  "kind": "build_request",
+  "title": "Expand Career Survey with additional interest-analysis steps to unlock broader career recommendations",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "text": "Expand the Career Survey flow by adding additional steps specifically focused on deeper interest analysis (beyond the current high-level “Areas of Interest” checklist) so the app can capture more nuanced interests and enable broader/more diverse career options in recommendations.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "add more steps to analyze some interests which help the user to get more career options"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The survey has more than the current 5 steps and includes at least 1 new step dedicated to deeper interest analysis.",
+        "All new survey steps use clear English prompts/instructions and match the existing minimal, professional UI style.",
+        "The survey progress indicator reflects the new total step count and updates correctly as the user navigates.",
+        "Validation rules (Next/Complete button disabled state) are implemented for each new step so users cannot proceed without providing the required input.",
+        "Survey completion still calls the existing onComplete callback with the full set of answers."
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Update the frontend survey answer model and state management to store the new interest-analysis answers captured by the added steps, and ensure these values are available to the chatbot and recommendation flows.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "add more steps to analyze some interests which help the user to get more career options"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The SurveyAnswers type and the survey state initialization include fields for the new interest-analysis answers.",
+        "Existing sections that depend on surveyAnswers (e.g., Career Assistant gating and Recommendations gating) continue to work without runtime errors.",
+        "Refreshing the page behavior remains unchanged (no new persistence requirements are introduced)."
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Revise the recommendation input and scoring on the frontend so the additional interest-analysis answers influence which careers are requested/selected, with the goal of producing more career options when the user provides richer interest information.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "add more steps to analyze some interests which help the user to get more career options"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The recommendations request logic is updated to incorporate the new interest-analysis answers (not just the current simple itSkills/mathSkills mapping).",
+        "The backend recommendations method accepts the updated input needed to reflect the new interest-analysis data.",
+        "When the user completes the expanded survey and reaches the recommendations section, the UI can render a broader set of recommendations (more than the current two items) when appropriate.",
+        "The recommendations section layout remains responsive and renders any number of returned recommendation cards without UI breakage."
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "text": "Update backend rule-based recommendation logic to use the expanded interest-analysis data to generate a broader/more diverse set of career recommendations, while continuing to return for each recommendation: career title, short description, required skills, typical education, and a clear match rationale.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "add more steps to analyze some interests which help the user to get more career options"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend recommendation generation incorporates the additional interest-analysis fields to vary/expand results.",
+        "The backend returns an array of recommendation objects that include: careerTitle, description, requiredSkills, typicalEducation, and matchReasons (or equivalent existing fields) for each item.",
+        "The backend remains within the single-actor architecture (all logic in backend/main.mo)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not edit frontend immutable paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Backend must remain a single Motoko actor; keep logic in backend/main.mo and only introduce backend/migration.mo if an actual stable-state migration is required."
+  ],
+  "nonGoals": [
+    "Adding external AI/LLM integrations for interest analysis.",
+    "Adding new authentication providers beyond Internet Identity.",
+    "Introducing external databases or non-Motoko backend services.",
+    "Adding real-time WebSocket-based features."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-expand-the-career-survey-flow-by-adding-additional-steps-specifically-focused-on-deeper-interest-analysis-beyond-the-current-high-level-areas-of-interest-checklist-so-the-app-can-capture-more-nuanced-interests-and-enable-broader-more-diverse-career-options-in-recommendations",
+      "featureTitle": "Expand the Career Survey flow by adding additional steps specifically focused on deeper interest analysis (beyond the current high-level “Areas of Interest” checklist) so the app can capture more nuanced interests and enable broader/more diverse career options in recommendations.",
+      "files": [
+        "frontend/src/components/survey/CareerSurvey.tsx",
+        "frontend/src/components/survey/steps/InterestActivitiesStep.tsx",
+        "frontend/src/components/survey/steps/WorkValuesStep.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-update-the-frontend-survey-answer-model-and-state-management-to-store-the-new-interest-analysis-answers-captured-by-the-added-steps-and-ensure-these-values-are-available-to-the-chatbot-and-recommendation-flows",
+      "featureTitle": "Update the frontend survey answer model and state management to store the new interest-analysis answers captured by the added steps, and ensure these values are available to the chatbot and recommendation flows.",
+      "files": [
+        "frontend/src/components/sections/CareerAssistantSection.tsx",
+        "frontend/src/components/sections/RecommendationsSection.tsx",
+        "frontend/src/components/survey/CareerSurvey.tsx",
+        "frontend/src/state/careerFlowStore.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-revise-the-recommendation-input-and-scoring-on-the-frontend-so-the-additional-interest-analysis-answers-influence-which-careers-are-requested-selected-with-the-goal-of-producing-more-career-options-when-the-user-provides-richer-interest-information",
+      "featureTitle": "Revise the recommendation input and scoring on the frontend so the additional interest-analysis answers influence which careers are requested/selected, with the goal of producing more career options when the user provides richer interest information.",
+      "files": [
+        "frontend/src/components/recommendations/RecommendationCard.tsx",
+        "frontend/src/components/sections/RecommendationsSection.tsx",
+        "frontend/src/hooks/useQueries.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

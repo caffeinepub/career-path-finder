@@ -1,0 +1,98 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Expand Career Survey interest analysis and broaden frontend recommendation inputs",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "summary": "Add new deeper interest-analysis step(s) to the Career Survey, increasing total steps and keeping UI/validation/progress behavior consistent.",
+      "acceptanceCriteria": [
+        "The survey has more than the current 5 steps and includes at least 1 new step dedicated to deeper interest analysis.",
+        "All new survey steps use clear English prompts/instructions and match the existing minimal, professional UI style.",
+        "The survey progress indicator reflects the new total step count and updates correctly as the user navigates.",
+        "Validation rules (Next/Complete button disabled state) are implemented for each new step so users cannot proceed without providing the required input.",
+        "Survey completion still calls the existing onComplete callback with the full set of answers."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/survey/steps/InterestActivitiesStep.tsx",
+          "operation": "create",
+          "description": "Create a new survey step focused on deeper interest analysis (e.g., preferred activities/tasks such as analyzing data, building, helping people, persuading, creating, organizing). Use shadcn-ui form primitives (e.g., Checkbox/Label) to match the existing minimal UI style. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/survey/steps/WorkValuesStep.tsx",
+          "operation": "create",
+          "description": "Create an additional deeper interest-analysis step capturing work values/motivators (e.g., stability, autonomy, impact, creativity, leadership, variety) using existing shadcn-ui components for consistent styling and accessibility. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/survey/CareerSurvey.tsx",
+          "operation": "modify",
+          "description": "Integrate the new interest-analysis step(s) into the survey flow: increase totalSteps (>5), add clear step titles/prompts, render the new step components, update canProceed() validation for each new step, and ensure the progress indicator uses the updated total and still calls onComplete(answers) with the complete answers object."
+        },
+        {
+          "path": "frontend/src/components/survey/SurveyProgress.tsx",
+          "operation": "modify",
+          "description": "Ensure the progress display continues to correctly reflect the new total step count (no hard-coded step assumptions) and remains visually consistent with the current minimal, professional style."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Extend the frontend SurveyAnswers model and survey state to store new interest-analysis answers and keep downstream flows stable.",
+      "acceptanceCriteria": [
+        "The SurveyAnswers type and the survey state initialization include fields for the new interest-analysis answers.",
+        "Existing sections that depend on surveyAnswers (e.g., Career Assistant gating and Recommendations gating) continue to work without runtime errors.",
+        "Refreshing the page behavior remains unchanged (no new persistence requirements are introduced)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/state/careerFlowStore.tsx",
+          "operation": "modify",
+          "description": "Extend the SurveyAnswers interface with fields for the new interest-analysis answers (e.g., interestActivities, workValues). Ensure defaults/nullable handling remain compatible with existing gating logic and do not add any new persistence behavior."
+        },
+        {
+          "path": "frontend/src/components/survey/CareerSurvey.tsx",
+          "operation": "modify",
+          "description": "Update the local survey answers initialization to include default values for the new SurveyAnswers fields, and ensure updateAnswers continues to update the full model without breaking existing steps."
+        },
+        {
+          "path": "frontend/src/components/sections/CareerAssistantSection.tsx",
+          "operation": "modify",
+          "description": "Confirm any surveyAnswers-dependent gating/messaging remains stable with the expanded answers model (no runtime errors when new fields are present). Keep behavior unchanged except for compatibility."
+        },
+        {
+          "path": "frontend/src/components/sections/RecommendationsSection.tsx",
+          "operation": "modify",
+          "description": "Update any local scoring/derivation logic to safely read the new SurveyAnswers fields (with sensible defaults) so the expanded model is available to recommendations flow without introducing crashes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Update frontend recommendation input/scoring to incorporate new interest-analysis answers and render a broader, variable-length set of recommendation cards responsively.",
+      "acceptanceCriteria": [
+        "The recommendations request logic is updated to incorporate the new interest-analysis answers (not just the current simple itSkills/mathSkills mapping).",
+        "The backend recommendations method accepts the updated input needed to reflect the new interest-analysis data.",
+        "When the user completes the expanded survey and reaches the recommendations section, the UI can render a broader set of recommendations (more than the current two items) when appropriate.",
+        "The recommendations section layout remains responsive and renders any number of returned recommendation cards without UI breakage."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Revise the recommendations query hook to accept a richer computed input derived from SurveyAnswers (rather than only the current itSkills/mathSkills pair). Update the query key to include the richer input so caching behaves correctly. Maintain existing loading/error behaviors."
+        },
+        {
+          "path": "frontend/src/components/sections/RecommendationsSection.tsx",
+          "operation": "modify",
+          "description": "Replace the current simplistic itSkills/mathSkills mapping with a richer scoring/derivation that incorporates the new interest-analysis fields (e.g., translate selected activities/values into additional score signals). Ensure the UI can display more than two recommendation cards when returned, and update the grid to remain responsive for any list length (including larger lists) without layout breakage."
+        },
+        {
+          "path": "frontend/src/components/recommendations/RecommendationCard.tsx",
+          "operation": "modify",
+          "description": "Harden rendering for variable recommendation content/length (e.g., long descriptions/skills lists) so cards remain visually stable when more recommendations are shown, while keeping the existing minimal, professional style via current shadcn-ui Card/Badge primitives. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}

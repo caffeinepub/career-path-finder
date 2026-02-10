@@ -1,0 +1,93 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-10T04:16:25.859Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 4,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-19",
+        "summary": "Expand the Career Survey flow by adding additional steps specifically focused on deeper interest analysis (beyond the current high-level “Areas of Interest” checklist) so the app can capture more nuanced interests and enable broader/more diverse career options in recommendations.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/survey/steps/InterestActivitiesStep.tsx",
+          "frontend/src/components/survey/steps/WorkValuesStep.tsx",
+          "frontend/src/components/survey/CareerSurvey.tsx",
+          "frontend/src/components/survey/SurveyProgress.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/survey/steps/InterestActivitiesStep.tsx",
+          "frontend/src/components/survey/steps/WorkValuesStep.tsx",
+          "frontend/src/components/survey/CareerSurvey.tsx"
+        ]
+      },
+      {
+        "id": "REQ-20",
+        "summary": "Update the frontend survey answer model and state management to store the new interest-analysis answers captured by the added steps, and ensure these values are available to the chatbot and recommendation flows.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/state/careerFlowStore.tsx",
+          "frontend/src/components/survey/CareerSurvey.tsx",
+          "frontend/src/components/sections/CareerAssistantSection.tsx",
+          "frontend/src/components/sections/RecommendationsSection.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/state/careerFlowStore.tsx",
+          "frontend/src/components/survey/CareerSurvey.tsx",
+          "frontend/src/components/sections/CareerAssistantSection.tsx",
+          "frontend/src/components/sections/RecommendationsSection.tsx"
+        ]
+      },
+      {
+        "id": "REQ-21",
+        "summary": "Revise the recommendation input and scoring on the frontend so the additional interest-analysis answers influence which careers are requested/selected, with the goal of producing more career options when the user provides richer interest information.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/components/sections/RecommendationsSection.tsx",
+          "frontend/src/components/recommendations/RecommendationCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/components/sections/RecommendationsSection.tsx",
+          "frontend/src/components/recommendations/RecommendationCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-22",
+        "summary": "Update backend rule-based recommendation logic to use the expanded interest-analysis data to generate a broader/more diverse set of career recommendations, while continuing to return for each recommendation: career title, short description, required skills, typical education, and a clear match rationale.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/recommendations/RecommendationCard.tsx",
+    "frontend/src/components/sections/CareerAssistantSection.tsx",
+    "frontend/src/components/sections/RecommendationsSection.tsx",
+    "frontend/src/components/survey/CareerSurvey.tsx",
+    "frontend/src/components/survey/steps/InterestActivitiesStep.tsx",
+    "frontend/src/components/survey/steps/WorkValuesStep.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/state/careerFlowStore.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

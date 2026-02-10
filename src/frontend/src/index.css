@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Light beige + navy palette - Light mode */
+        --background: 0.96 0.015 60;
+        --foreground: 0.20 0.03 240;
+        
+        --card: 0.98 0.01 60;
+        --card-foreground: 0.20 0.03 240;
+        
+        --popover: 0.98 0.01 60;
+        --popover-foreground: 0.20 0.03 240;
+        
+        --primary: 0.35 0.12 240;
+        --primary-foreground: 0.98 0.01 60;
+        
+        --secondary: 0.88 0.02 50;
+        --secondary-foreground: 0.25 0.03 240;
+        
+        --muted: 0.92 0.015 55;
+        --muted-foreground: 0.45 0.03 240;
+        
+        --accent: 0.90 0.02 50;
+        --accent-foreground: 0.25 0.03 240;
+        
+        --destructive: 0.55 0.22 15;
+        --destructive-foreground: 0.98 0.01 60;
+        
+        --border: 0.85 0.02 55;
+        --input: 0.85 0.02 55;
+        --ring: 0.35 0.12 240;
+        
+        --chart-1: 0.40 0.14 235;
+        --chart-2: 0.45 0.12 245;
+        --chart-3: 0.50 0.10 230;
+        --chart-4: 0.38 0.15 250;
+        --chart-5: 0.42 0.13 225;
+    }
+
+    .dark {
+        /* Navy + warm beige accents - Dark mode */
+        --background: 0.18 0.04 240;
+        --foreground: 0.94 0.015 55;
+        
+        --card: 0.22 0.04 240;
+        --card-foreground: 0.94 0.015 55;
+        
+        --popover: 0.20 0.04 240;
+        --popover-foreground: 0.94 0.015 55;
+        
+        --primary: 0.55 0.16 235;
+        --primary-foreground: 0.18 0.04 240;
+        
+        --secondary: 0.30 0.04 240;
+        --secondary-foreground: 0.94 0.015 55;
+        
+        --muted: 0.26 0.04 240;
+        --muted-foreground: 0.70 0.02 55;
+        
+        --accent: 0.28 0.04 240;
+        --accent-foreground: 0.94 0.015 55;
+        
+        --destructive: 0.60 0.20 15;
+        --destructive-foreground: 0.94 0.015 55;
+        
+        --border: 0.30 0.04 240;
+        --input: 0.30 0.04 240;
+        --ring: 0.55 0.16 235;
+        
+        --chart-1: 0.50 0.18 235;
+        --chart-2: 0.55 0.16 245;
+        --chart-3: 0.60 0.14 230;
+        --chart-4: 0.48 0.20 250;
+        --chart-5: 0.52 0.17 225;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-semibold tracking-tight;
+    }
+}
+
+@layer utilities {
+    .section-spacing {
+        @apply py-16 md:py-24;
+    }
+    
+    /* Animation delay utilities */
+    .animation-delay-100 {
+        animation-delay: 100ms;
+    }
+    
+    .animation-delay-200 {
+        animation-delay: 200ms;
+    }
+    
+    .animation-delay-300 {
+        animation-delay: 300ms;
+    }
+    
+    .animation-delay-400 {
+        animation-delay: 400ms;
+    }
+    
+    /* Professional transition defaults */
+    .transition-professional {
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+/* Reduced motion support - disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    /* For reduced motion, show elements immediately */
+    .fade-in,
+    .fade-in-up,
+    .scale-in,
+    .slide-in-left {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

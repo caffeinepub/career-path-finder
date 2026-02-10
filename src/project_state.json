@@ -1,0 +1,256 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 9,
+  "summary": "Professional, responsive web application “Career Path Finder” to guide users to suitable career paths via an AI-based step-by-step survey, an interactive AI chatbot, and a recommendation output with explanations in a clean, modern UI.",
+  "architectural_notes": [
+    "Use combined approach: survey-driven rule-based + multi-criteria scoring to generate 2–3 career recommendations, with chatbot providing conversational follow-up and explanations.",
+    "Use subtle, performance-friendly UI animations (prefer CSS transitions/motion with reduced-motion support) to enhance professionalism without distracting from content.",
+    "Update visual design system/palette from white/blue/grey to light beige + navy blue while maintaining a minimal, professional, trustworthy look."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-professional-responsive-single-page-website-structure-for-career-path-finder-with-clearly-separated-sections-homepage-career-survey-career-assistant-chatbot-career-recommendations-output-technology-ai-explanation-and-footer",
+      "title": "Create a professional, responsive single-page website structure for “Career Path Finder” with clearly separated sections: Homepage, Career Survey, Career Assistant (chatbot), Career Recommendations output, Technology & AI Explanation, and Footer.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-homepage-section-with-a-clean-modern-professional-visual-design-using-a-white-blue-grey-palette-and-english-text-title-career-path-finder-subtitle-ai-powered-career-guidance-for-smarter-decisions-a-brief-description-of-how-the-system-works-and-a-primary-call-to-action-button-labeled-find-my-career-path-that-scrolls-jumps-to-the-career-survey-section",
+      "title": "Implement the Homepage section with a clean, modern, professional visual design using a white/blue/grey palette and English text: Title “Career Path Finder”, subtitle “AI-Powered Career Guidance for Smarter Decisions”, a brief description of how the system works, and a primary call-to-action button labeled “Find My Career Path” that scrolls/jumps to the Career Survey section.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-step-by-step-career-survey-flow-that-collects-areas-of-interest-key-skills-preferred-work-environment-learning-style-and-personality-traits-using-a-mix-of-dropdowns-radio-buttons-and-sliders-for-simple-input",
+      "title": "Build a step-by-step Career Survey flow that collects: areas of interest, key skills, preferred work environment, learning style, and personality traits, using a mix of dropdowns, radio buttons, and sliders for simple input.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-survey-progress-indicator-that-communicates-completion-status-e-g-step-count-and-or-progress-bar-and-updates-as-the-user-advances-through-the-survey-steps",
+      "title": "Add a survey progress indicator that communicates completion status (e.g., step count and/or progress bar) and updates as the user advances through the survey steps.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-ai-chatbot-section-titled-career-assistant-with-a-professional-chat-ui-that-supports-a-conversational-back-and-forth-the-chatbot-must-ask-follow-up-questions-based-on-the-user-s-survey-responses-clarify-interests-and-goals-explain-why-certain-careers-are-suitable-and-answer-general-career-related-questions-using-the-app-s-built-in-knowledge-rules-no-external-llm-dependency",
+      "title": "Create the AI Chatbot section titled “Career Assistant” with a professional chat UI that supports a conversational back-and-forth. The chatbot must: ask follow-up questions based on the user’s survey responses, clarify interests and goals, explain why certain careers are suitable, and answer general career-related questions using the app’s built-in knowledge/rules (no external LLM dependency).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-the-user-completes-the-survey-and-has-at-least-one-chatbot-interaction-or-explicitly-chooses-to-skip-chat-display-the-career-recommendation-output-section-showing-2-3-recommended-career-paths-in-a-card-based-layout-including-short-description-required-skills-typical-education-and-the-match-rationale",
+      "title": "After the user completes the survey and has at least one chatbot interaction (or explicitly chooses to skip chat), display the Career Recommendation Output section showing 2–3 recommended career paths in a card-based layout, including short description, required skills, typical education, and the match rationale.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-technology-ai-explanation-section-written-in-simple-non-technical-english-explaining-that-the-system-uses-rule-based-decision-logic-multi-criteria-analysis-and-ai-assisted-conversational-guidance",
+      "title": "Add a “Technology & AI Explanation” section written in simple, non-technical English explaining that the system uses: rule-based decision logic, multi-criteria analysis, and AI-assisted conversational guidance.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-footer-with-the-exact-disclaimer-text-career-suggestions-are-for-guidance-purposes-only-and-a-contact-about-area-links-or-a-small-section-suitable-for-an-academic-professional-presentation",
+      "title": "Add a Footer with: the exact disclaimer text “Career suggestions are for guidance purposes only.” and a Contact/About area (links or a small section) suitable for an academic/professional presentation.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-overall-ui-meets-the-design-requirements-minimal-professional-trustworthy-tone-mobile-friendly-responsive-layout-modern-fonts-and-icons-clean-spacing-and-typography-consistent-across-all-sections",
+      "title": "Ensure the overall UI meets the design requirements: minimal, professional, trustworthy tone; mobile-friendly responsive layout; modern fonts and icons; clean spacing and typography consistent across all sections.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-store-and-manage-the-user-s-in-progress-survey-answers-and-chat-transcript-in-the-frontend-state-and-use-react-query-to-call-backend-methods-for-chatbot-replies-and-recommendations-including-loading-error-states",
+      "title": "Store and manage the user’s in-progress survey answers and chat transcript in the frontend state, and use React Query to call backend methods for chatbot replies and recommendations (including loading/error states).",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-visual-assets-for-the-app-logo-and-a-subtle-hero-illustration-and-render-them-in-the-ui-as-static-files-served-from-frontend-public-assets-generated-do-not-proxy-images-through-the-backend",
+      "title": "Add generated static visual assets for the app (logo and a subtle hero illustration) and render them in the UI as static files served from frontend/public/assets/generated (do not proxy images through the backend).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-small-set-of-subtle-professional-animation-utilities-keyframes-tailwind-animation-class-names-and-ensure-they-respect-accessibility-preferences-disable-or-significantly-reduce-motion-when-the-user-has-prefers-reduced-motion",
+      "title": "Add a small set of subtle, professional animation utilities (keyframes + Tailwind animation class names) and ensure they respect accessibility preferences (disable or significantly reduce motion when the user has `prefers-reduced-motion`).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-subtle-entrance-reveal-animations-for-major-sections-and-key-hero-elements-so-the-page-feels-polished-while-remaining-minimal-e-g-home-hero-content-section-headers-cards",
+      "title": "Add subtle entrance/reveal animations for major sections and key hero elements so the page feels polished while remaining minimal (e.g., Home hero content, section headers, cards).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-subtle-professional-micro-animations-to-the-survey-and-chat-flows-to-improve-perceived-responsiveness-survey-step-transitions-and-chat-message-appearance",
+      "title": "Add subtle, professional micro-animations to the survey and chat flows to improve perceived responsiveness (survey step transitions and chat message appearance).",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-global-ui-theme-color-palette-to-a-light-beige-navy-blue-scheme-replacing-the-current-blue-grey-palette-and-ensure-the-new-palette-is-applied-consistently-across-all-sections-topnav-hero-survey-chat-recommendations-technology-cards-footer-including-backgrounds-text-borders-buttons-badges-and-gradients",
+      "title": "Update the global UI theme color palette to a light beige + navy blue scheme (replacing the current blue/grey palette) and ensure the new palette is applied consistently across all sections (TopNav, hero, survey, chat, recommendations, technology cards, footer), including backgrounds, text, borders, buttons, badges, and gradients.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-additional-professional-subtle-graphics-static-generated-assets-and-incorporate-them-into-the-page-design-in-a-restrained-way-e-g-soft-background-texture-pattern-overlays-abstract-corner-shapes-section-separators-to-improve-visual-richness-while-keeping-the-ui-clean-and-academic-professional",
+      "title": "Add additional professional, subtle graphics (static generated assets) and incorporate them into the page design in a restrained way (e.g., soft background texture/pattern overlays, abstract corner shapes, section separators) to improve visual richness while keeping the UI clean and academic/professional.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-polish-and-standardize-animations-across-the-site-so-they-feel-very-professional-smooth-entrance-reveals-consistent-easing-duration-and-refined-micro-interactions-hover-press-focus-for-key-interactive-elements-topnav-items-primary-cta-cards-survey-step-transitions-and-chat-message-appearance",
+      "title": "Polish and standardize animations across the site so they feel very professional: smooth entrance reveals, consistent easing/duration, and refined micro-interactions (hover/press/focus) for key interactive elements (TopNav items, primary CTA, cards, survey step transitions, and chat message appearance).",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-expand-the-career-survey-flow-by-adding-additional-steps-specifically-focused-on-deeper-interest-analysis-beyond-the-current-high-level-areas-of-interest-checklist-so-the-app-can-capture-more-nuanced-interests-and-enable-broader-more-diverse-career-options-in-recommendations",
+      "title": "Expand the Career Survey flow by adding additional steps specifically focused on deeper interest analysis (beyond the current high-level “Areas of Interest” checklist) so the app can capture more nuanced interests and enable broader/more diverse career options in recommendations.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-frontend-survey-answer-model-and-state-management-to-store-the-new-interest-analysis-answers-captured-by-the-added-steps-and-ensure-these-values-are-available-to-the-chatbot-and-recommendation-flows",
+      "title": "Update the frontend survey answer model and state management to store the new interest-analysis answers captured by the added steps, and ensure these values are available to the chatbot and recommendation flows.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-revise-the-recommendation-input-and-scoring-on-the-frontend-so-the-additional-interest-analysis-answers-influence-which-careers-are-requested-selected-with-the-goal-of-producing-more-career-options-when-the-user-provides-richer-interest-information",
+      "title": "Revise the recommendation input and scoring on the frontend so the additional interest-analysis answers influence which careers are requested/selected, with the goal of producing more career options when the user provides richer interest information.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build Homepage with professional white/blue/grey design, title/subtitle, brief explanation, and “Find My Career Path” CTA",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement step-by-step Career Survey with dropdowns/radio buttons/sliders and a progress indicator",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Embed AI Chatbot section “Career Assistant” that asks follow-ups, clarifies goals, explains recommendations, and answers career questions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Create Career Recommendation Output showing 2–3 career paths with descriptions, required skills/education, and match rationale in card layout",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add Technology & AI Explanation section describing rule-based logic, multi-criteria analysis, and AI-assisted guidance in non-technical language",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add Footer with guidance-only disclaimer plus Contact/About links/section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Ensure mobile-friendly responsive layout with modern fonts/icons and minimal professional UI suitable for academic/professional presentation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Implement backend decision logic that takes the completed survey responses and produces 2–3 career recommendations, each including: career title, short description, required skills, typical education, and a clear explanation of why it matches the user’s profile.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Add subtle, professional UI animations (e.g., smooth section transitions, button hover/focus, survey step transitions, chatbot message reveal) while maintaining a minimal, trustworthy tone",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Update UI theme to a light beige + navy blue color palette and add more professional graphics/visual elements across the site",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Expand the Career Survey with additional interest-analysis steps to capture more nuanced interests and enable broader/more diverse career options in recommendations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Update backend rule-based recommendation logic to use the expanded interest-analysis data to generate a broader/more diverse set of career recommendations, while continuing to return for each recommendation: career title, short description, required skills, typical education, and a clear match rationale.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Career Path Finder",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
